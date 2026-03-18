@@ -45,6 +45,7 @@ pip install -e .
 ### GUI Application
 
 If using Python:
+
 ```bash
 python pdf_color_bw_gui.py
 ```
