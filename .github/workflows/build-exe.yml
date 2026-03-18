@@ -22,18 +22,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pyinstaller
 
       - name: Build executable with PyInstaller
         run: |
-          pyinstaller pdf_color_bw_gui.spec --clean --distpath ./dist
+          python -m PyInstaller pdf_color_bw_gui.spec --clean --distpath ./dist -y
 
       - name: Check build output
         run: |
-          dir dist
-          if (-not (Test-Path "dist/PDF_Color_Page_Counter.exe")) {
-            Write-Error "Build failed: exe not found"
-            Exit 1
+          if (Test-Path "dist\PDF_Color_Page_Counter.exe") {
+            Write-Host "✅ BUILD SUCCESS"
+            Get-Item "dist\PDF_Color_Page_Counter.exe" | Select-Object -Property FullName, @{Name="SizeMB";Expression={[math]::Round($_.Length/1MB,2)}}
+          } else {
+            throw "Build failed: PDF_Color_Page_Counter.exe not found"
           }
 
       - name: Upload Release Asset
