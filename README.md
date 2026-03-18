@@ -20,7 +20,9 @@ A Python tool to identify and separate colored pages from black & white pages in
 	- `PDF_Color_Page_Counter-macos-*.zip`
 	- `PDF_Color_Page_Counter-linux-*.zip`
 3. Extract the archive
-4. Run the included binary
+4. Run the included binary:
+	- Windows: double-click `.exe`
+	- macOS/Linux: run `chmod +x PDF_Color_Page_Counter*` once, then launch it
 
 ---
 
@@ -71,8 +73,14 @@ from color_page_counter import find_color_pages, write_split_pdfs
 from pathlib import Path
 
 pdf_path = Path("your_document.pdf")
-color_pages, bw_pages = find_color_pages(pdf_path)
-write_split_pdfs(pdf_path, color_pages, bw_pages)
+total_pages, color_pages = find_color_pages(pdf_path)
+write_split_pdfs(
+	input_pdf=pdf_path,
+	total_pages=total_pages,
+	color_pages=color_pages,
+	out_color_pdf=Path("color_pages.pdf"),
+	out_bw_pdf=Path("bw_pages.pdf"),
+)
 ```
 
 ## Configuration
