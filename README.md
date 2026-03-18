@@ -10,14 +10,21 @@ A Python tool to identify and separate colored pages from black & white pages in
 - 📄 Splits PDFs into separate color and B&W documents
 - ⚡ Fast processing with configurable sensitivity
 
-## Requirements
+## Quick Start (Windows - No Python Required!)
 
-- Python 3.11 or higher
-- tkinter (usually included with Python)
+### 📥 Option 1: Download Executable (Easiest)
 
-## Installation
+1. Go to [**Releases**](https://github.com/gamberoillecito/pdf-color-page-counter/releases)
+2. Download `PDF_Color_Page_Counter.exe`
+3. Run it directly - everything is included!
+
+---
+
+## Installation (For Python Users)
 
 ### Option 1: Using pip (from source)
+
+Requires: Python 3.11 or higher
 
 ```bash
 git clone https://github.com/gamberoillecito/pdf-color-page-counter.git
@@ -37,13 +44,15 @@ pip install -e .
 
 ### GUI Application
 
-Run the graphical user interface:
-
+If using Python:
 ```bash
 python pdf_color_bw_gui.py
 ```
 
+If using the `.exe` file: Just double-click it!
+
 Then:
+
 1. Click "Open PDF..." to select a PDF file
 2. The tool will analyze all pages and identify colored ones
 3. View results in the GUI and export to CSV or split PDFs
@@ -79,4 +88,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Author
 
-Giacomo Bertelli 
+Giacomo Bertelli
